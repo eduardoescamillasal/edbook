@@ -1,3 +1,4 @@
+import "bulmaswatch/superhero/bulmaswatch.min.css";
 import * as esbuild from "esbuild-wasm";
 import { useEffect, useState, useRef } from "react";
 import ReactDOM from "react-dom/client";
@@ -13,7 +14,6 @@ const App = () => {
   const ref = useRef<any>();
   const iframe = useRef<any>();
   const [input, setInput] = useState("");
-  const [code, setCode] = useState("");
 
   const startService = async () => {
     ref.current = await esbuild.startService({
@@ -69,7 +69,7 @@ const App = () => {
   `;
 
   return (
-    <div>
+    <div className="editor-wrapper">
       <CodeEditor
         initialValue="const a = 1;"
         onChange={(value) => setInput(value)}
