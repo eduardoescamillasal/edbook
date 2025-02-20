@@ -1,11 +1,10 @@
 import "bulmaswatch/superhero/bulmaswatch.min.css";
-
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
-
 import CodeEditor from "./components/code-editor";
 import Preview from "./components/preview";
-import bundle from "./bundler";
+import Bundle from "./bundler";
+
 const el = document.getElementById("root");
 
 const root = ReactDOM.createRoot(el!);
@@ -15,7 +14,7 @@ const App = () => {
   const [input, setInput] = useState("");
 
   const onClick = async () => {
-    const output = await bundle(input);
+    const output = await Bundle(input);
     setCode(output);
   };
 
