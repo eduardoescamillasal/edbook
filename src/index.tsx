@@ -30,6 +30,8 @@ const App = () => {
       return;
     }
 
+    iframe.current.srcdoc = html;
+
     const result = await ref.current.build({
       entryPoints: ["index.js"],
       bundle: true,
@@ -74,8 +76,13 @@ const App = () => {
       <div>
         <button onClick={onClick}>Submit</button>
       </div>
-      <pre>{code}</pre>
-      <iframe ref={iframe} sandbox="allow-scripts" srcDoc={html} />
+
+      <iframe
+        title="Code preview"
+        ref={iframe}
+        sandbox="allow-scripts"
+        srcDoc={html}
+      />
     </div>
   );
 };
